@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+  <title>Snake Game | Arcade Moderne</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <main class="game-container">
+
+    <header class="header">
+      <div class="brand">
+        <span class="brand-icon">◆</span>
+        <h1>SNAKE <span>GAME</span></h1>
+      </div>
+      <span class="game-tag">ARCADE</span>
+    </header>
+
+    <section class="scoreboard" aria-label="Statistiques">
+      <div class="score-card">
+        <span class="score-label">SCORE</span>
+        <strong id="score">0</strong>
+      </div>
+
+      <div class="score-card">
+        <span class="score-label">RECORD</span>
+        <strong id="best-score">0</strong>
+      </div>
+
+      <div class="score-card">
+        <span class="score-label">NIVEAU</span>
+        <strong id="level">1</strong>
+      </div>
+    </section>
+
+    <section class="game-board" aria-label="Terrain de jeu">
+      <canvas id="game" width="400" height="400">
+        Votre navigateur ne prend pas en charge Canvas.
+      </canvas>
+
+      <div id="overlay" class="overlay">
+        <div class="overlay-content">
+          <div class="overlay-icon"></div>
+          <h2 id="overlay-title">Prêt à jouer ?</h2>
+          <p id="overlay-message">
+            Mange les pommes et évite les collisions.
+          </p>
+          <button id="overlay-button" class="btn btn-primary">
+            ▶ Commencer
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button id="start-btn" class="btn btn-primary">
+        ▶ Nouvelle partie
+      </button>
+      <button id="pause-btn" class="btn btn-secondary" disabled>
+        ⏸ Pause
+      </button>
+    </div>
+
+    <section class="controls">
+      <p>COMMANDES</p>
+      <div class="keyboard-info">
+        <span>↑ ↓ ← →</span>
+        <span class="separator">ou</span>
+        <span>Z Q S D</span>
+      </div>
+      <small>Espace : pause / reprise</small>
+    </section>
+
+    <div class="mobile-controls" aria-label="Commandes tactiles">
+      <button data-direction="up" aria-label="Haut">↑</button>
+
+      <div class="direction-row">
+        <button data-direction="left" aria-label="Gauche">←</button>
+        <button data-direction="down" aria-label="Bas">↓</button>
+        <button data-direction="right" aria-label="Droite">→</button>
+      </div>
+    </div>
+
+    <footer>
+      <p>Snake Game • HTML5 / CSS3 / JavaScript</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>

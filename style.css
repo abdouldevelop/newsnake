@@ -1,0 +1,331 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --background: #0b1220;
+  --surface: #151f30;
+  --surface-light: #1d2b40;
+  --primary: #4ade80;
+  --primary-hover: #86efac;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --border: #29384d;
+  --danger: #fb7185;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 15px;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 480px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: var(--primary);
+  color: var(--background);
+  border-radius: 12px;
+  font-size: 24px;
+}
+
+h1 {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+h1 span {
+  color: var(--primary);
+}
+
+.game-tag {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 7px 12px;
+  font-size: 11px;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+/* Tableau de bord */
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.score-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.score-label {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.score-card strong {
+  font-size: 27px;
+  color: var(--primary);
+}
+
+/* Plateau */
+
+.game-board {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  background: #101c2a;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+/* Fenêtre de démarrage / pause / fin */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(8, 15, 27, 0.88);
+  backdrop-filter: blur(5px);
+  z-index: 5;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-content {
+  padding: 20px;
+  text-align: center;
+  max-width: 310px;
+}
+
+.overlay-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.overlay h2 {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.overlay p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+/* Boutons */
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.btn {
+  border: none;
+  border-radius: 12px;
+  padding: 15px 18px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #0b1220;
+  flex: 1;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: var(--surface-light);
+  color: var(--text);
+  border: 1px solid var(--border);
+  flex: 1;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #30415b;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Instructions */
+
+.controls {
+  text-align: center;
+  margin-top: 28px;
+}
+
+.controls p {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.keyboard-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.keyboard-info span:not(.separator) {
+  padding: 10px 15px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.separator {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.controls small {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+/* Touches tactiles */
+
+.mobile-controls {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+.direction-row {
+  display: flex;
+  gap: 8px;
+}
+
+.mobile-controls button {
+  width: 65px;
+  height: 55px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-light);
+  color: var(--primary);
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.mobile-controls button:active {
+  background: var(--primary);
+  color: var(--background);
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  body {
+    align-items: flex-start;
+    padding: 18px 12px;
+  }
+
+  h1 {
+    font-size: 19px;
+  }
+
+  .score-card {
+    padding: 12px 6px;
+  }
+
+  .score-card strong {
+    font-size: 23px;
+  }
+
+  .mobile-controls {
+    display: flex;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
